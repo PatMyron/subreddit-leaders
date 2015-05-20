@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+<head>
+	<meta content="Pat Myron" name="author">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Subreddit Leaders</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="http://cdn.jsdelivr.net/reddit.js/0.1.3/reddit.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+	<label for="text1">/r/
+		<input type="text" name="myText" id="myText" size="20" maxlength="20" onChange="addRows();" list="datalist1"/>
+	</label>
+	<select id="time" onChange="addRows();">
+		<option value="all">all time</option>
+		<option value="hour">this hour</option>
+		<option value="day">today</option>
+		<option value="week">this week</option>
+		<option value="month">this month</option>
+		<option value="year">this year</option>
+	</select>
+	<select id="type" onChange="addRows();">
+		<option value="total karma">total karma</option>
+		<option value="karma/post">karma/post</option>
+		<option value="total # of posts">total # of posts</option>
+	</select>
+	<label for="text2"> # of posts to scrape:
+		<input type="text" name="myText2" id="myText2" size="7" maxlength="10" value="10000" onChange="addRows();"/>
+	</label>
+
+	<br>
+	<table id="myTable">
+		<tr>
+			<th>
+				username
+			</th>
+			<th>
+				karma
+			</th>
+		</tr>
+	</table>
+	<datalist id="datalist1">
+		<option value= "all" > </option>
+		<option value= "funny" > </option>
+		<option value= "pics" > </option>
+		<option value= "AdviceAnimals" > </option>
+		<option value= "todayilearned" > </option>
+		<option value= "aww" > </option>
+		<option value= "WTF" > </option>
+		<option value= "thebutton" > </option>
+		<option value= "BlackPeopleTwitter" > </option>
+		<option value= "gifs" > </option>
+		<option value= "videos" > </option>
+		<option value= "gaming" > </option>
+		<option value= "leagueoflegends" > </option>
+		<option value= "AskReddit" > </option>
+		<option value= "fatpeoplehate" > </option>
+		<option value= "worldnews" > </option>
+		<option value= "4chan" > </option>
+		<option value= "pcmasterrace" > </option>
+		<option value= "TrollXChromosomes" > </option>
+		<option value= "Showerthoughts" > </option>
+		<option value= "mildlyinteresting" > </option>
+		<option value= "me_irl" > </option>
+		<option value= "news" > </option>
+		<option value= "trees" > </option>
+		<option value= "politics" > </option>
+		<option value= "soccer" > </option>
+		<option value= "nba" > </option>
+		<option value= "atheism" > </option>
+		<option value= "TumblrInAction" > </option>
+		<option value= "movies" > </option>
+		<option value= "gentlemanboners" > </option>
+		<option value= "technology" > </option>
+		<option value= "GlobalOffensive" > </option>
+		<option value= "Jokes" > </option>
+		<option value= "DotA2" > </option>
+		<option value= "pokemon" > </option>
+		<option value= "woahdude" > </option>
+		<option value= "tifu" > </option>
+		<option value= "reactiongifs" > </option>
+		<option value= "SquaredCircle" > </option>
+		<option value= "Celebs" > </option>
+		<option value= "science" > </option>
+		<option value= "interestingasfuck" > </option>
+		<option value= "nfl" > </option>
+		<option value= "food" > </option>
+		<option value= "cats" > </option>
+		<option value= "tumblr" > </option>
+		<option value= "KotakuInAction" > </option>
+		<option value= "hockey" > </option>
+		<option value= "Games" > </option>
+		<option value= "hearthstone" > </option>
+		<option value= "explainlikeimfive" > </option>
+		<option value= "Tinder" > </option>
+		<option value= "creepy" > </option>
+		<option value= "smashbros" > </option>
+		<option value= "CitiesSkylines" > </option>
+		<option value= "bestof" > </option>
+		<option value= "polandball" > </option>
+		<option value= "anime" > </option>
+		<option value= "nottheonion" > </option>
+		<option value= "OldSchoolCool" > </option>
+		<option value= "EarthPorn" > </option>
+		<option value= "DestinyTheGame" > </option>
+		<option value= "MakeupAddiction" > </option>
+		<option value= "cringepics" > </option>
+		<option value= "mylittlepony" > </option>
+		<option value= "IAmA" > </option>
+		<option value= "comics" > </option>
+		<option value= "Android" > </option>
+		<option value= "LifeProTips" > </option>
+		<option value= "amiibo" > </option>
+		<option value= "television" > </option>
+		<option value= "Music" > </option>
+		<option value= "teenagers" > </option>
+		<option value= "conspiracy" > </option>
+		<option value= "CollegeBasketball" > </option>
+		<option value= "Unexpected" > </option>
+		<option value= "mildlyinfuriating" > </option>
+		<option value= "baseball" > </option>
+		<option value= "HistoryPorn" > </option>
+		<option value= "facepalm" > </option>
+		<option value= "relationships" > </option>
+		<option value= "trashy" > </option>
+		<option value= "thewalkingdead" > </option>
+		<option value= "hiphopheads" > </option>
+		<option value= "Minecraft" > </option>
+		<option value= "WritingPrompts" > </option>
+		<option value= "bloodborne" > </option>
+		<option value= "CrappyDesign" > </option>
+		<option value= "StarWars" > </option>
+		<option value= "oddlysatisfying" > </option>
+		<option value= "starcraft" > </option>
+		<option value= "2007scape" > </option>
+		<option value= "progresspics" > </option>
+		<option value= "shittyreactiongifs" > </option>
+		<option value= "DIY" > </option>
+		<option value= "skyrim" > </option>
+		<option value= "justneckbeardthings" > </option>
+		<option value= "exmormon" > </option>
+		<option value= "TopGear" > </option>
+		<option value= "space" > </option>
+		<option value= "gameofthrones" > </option>
+		<option value= "books" > </option>
+		<option value= "GrandTheftAutoV" > </option>
+		<option value= "newsokur" > </option>
+		<option value= "magicTCG" > </option>
+		<option value= "childfree" > </option>
+		<option value= "FoodPorn" > </option>
+		<option value= "Fitness" > </option>
+		<option value= "GetMotivated" > </option>
+		<option value= "photoshopbattles" > </option>
+		<option value= "india" > </option>
+		<option value= "TwoXChromosomes" > </option>
+		<option value= "youtubehaiku" > </option>
+		<option value= "Futurology" > </option>
+		<option value= "PS4" > </option>
+		<option value= "nosleep" > </option>
+		<option value= "askscience" > </option>
+		<option value= "MMA" > </option>
+		<option value= "Art" > </option>
+		<option value= "standupshots" > </option>
+		<option value= "firstworldanarchists" > </option>
+		<option value= "tattoos" > </option>
+		<option value= "TalesFromRetail" > </option>
+		<option value= "sports" > </option>
+		<option value= "WPIAL" > </option>
+		<option value= "redwallSeries" > </option>
+		<option value= "roboticLawnmowers" > </option>
+		<option value= "domesticRobots" > </option>
+		<option value= "Pittsburgh" > </option>
+		<option value= "notreDame" > </option>
+		<option value= "csCareerQuestions" > </option>
+	</datalist>
+</body>
+</html>

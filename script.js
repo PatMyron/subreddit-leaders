@@ -3,11 +3,12 @@ function addRows () {	// ENTRY POINT     int main() lol
 	var subreddit = document.getElementById("myText").value;
 	var time = document.getElementById("time").value;
 	var type = document.getElementById("type").value;
+	var lim = document.getElementById("myText2").value; // number of posts to get
+	var numUsers = document.getElementById("myText3").value;
 	var url = "https://www.reddit.com/r/";
 	url += subreddit+"/top/?sort=top&t="+time;
 	map = new Array();
 	deleteRows(); 
-	var lim = document.getElementById("myText2").value; // number of posts to get
 	reddit.top(subreddit).t(time).limit(lim).fetch(function(res) {
 		for(var i = 0; i < lim; i++) {
 			try {
@@ -25,14 +26,16 @@ function addRows () {	// ENTRY POINT     int main() lol
 			}
 			map[user] += score;
 		} 
-
 		/************************************
 		IMPLEMENT A SORT BY VALUE
 		THAT PRESERVES THE SCORE (VALUE)
 		**********************************/
 		var keysSorted = getSortedKeys(map);
 
-		for (var i = 0; i < keysSorted.length; i++) {
+		for (var i = 0; i < numUsers; i++) {
+			if (i >= keysSorted.length) {
+				break;
+			}
 			var key = keysSorted[i];
 			addRow(key, map[key]);
 		}

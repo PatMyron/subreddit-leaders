@@ -5,15 +5,14 @@ function addRows () {	// ENTRY POINT     int main() lol
 	var type = document.getElementById("type").value;
 	var lim = document.getElementById("myText2").value; // number of posts to get
 	var numUsers = document.getElementById("myText3").value;
-	var url = "https://www.reddit.com/r/";
-	url += subreddit+"/top/?sort=top&t="+time;
-	map = new Array();
+	var url = "https://www.reddit.com/r/" + subreddit+"/top/?sort=top&t="+time;
+	var map = [];
 	deleteRows(); 
 	reddit.top(subreddit).t(time).limit(lim).fetch(function(res) {
 		for(var i = 0; i < lim; i++) {
 			try {
-				user = res.data.children[i].data.author;
-				score = res.data.children[i].data.score;
+				var user = res.data.children[i].data.author;
+				var score = res.data.children[i].data.score;
 				if (user == "[deleted]") { // [deleted] == power user
 					continue;
 				}

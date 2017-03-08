@@ -1,10 +1,8 @@
 function addRows() {	// ENTRY POINT     int main() lol
     var subreddit = document.getElementById("myText").value;
     var time = document.getElementById("time").value;
-    var type = document.getElementById("type").value;
     var lim = document.getElementById("myText2").value; // number of posts to get
     var numUsers = document.getElementById("myText3").value;
-    var url = "https://www.reddit.com/r/" + subreddit + "/top/?sort=top&t=" + time;
     var map = [];
     deleteRows();
     reddit.top(subreddit).t(time).limit(lim).fetch(function (res) {
@@ -48,7 +46,7 @@ function addRow(cellOne, cellTwo) {
 }
 function deleteRows() {
     var table = document.getElementById("myTable");
-    for (var i = 1; i < table.rows.length; i += 0) { // DONT INCREMENT
+    for (var i = 1; i < table.rows.length;) { // DONT INCREMENT
         table.deleteRow(i);
     }
 }

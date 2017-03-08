@@ -39,10 +39,8 @@ function addRows() {
 function addRow(cellOne, cellTwo) {
     var table = document.getElementById("myTable");
     var row = table.insertRow(-1); // last row
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = cellOne;
-    cell2.innerHTML = cellTwo;
+    row.insertCell(0).innerHTML = cellOne;
+    row.insertCell(1).innerHTML = cellTwo;
 }
 function deleteRows() {
     var table = document.getElementById("myTable");

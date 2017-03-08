@@ -21,12 +21,9 @@ function addRows() {
             }
             map[user] += score;
         }
-        /************************************
-         IMPLEMENT A SORT BY VALUE
-         THAT PRESERVES THE SCORE (VALUE)
-         **********************************/
-        var keysSorted = getSortedKeys(map);
 
+        /* sorting */
+        var keysSorted = getSortedKeys(map);
         for (var i = 0; i < numUsers && i < keysSorted.length; i++) {
             var key = keysSorted[i];
             addRow(key, map[key]);

@@ -1,5 +1,4 @@
 function addRows() {	// ENTRY POINT     int main() lol
-    var time0 = new Date().getTime();
     var subreddit = document.getElementById("myText").value;
     var time = document.getElementById("time").value;
     var type = document.getElementById("type").value;
@@ -16,8 +15,7 @@ function addRows() {	// ENTRY POINT     int main() lol
                 if (user == "[deleted]") { // [deleted] == power user
                     continue;
                 }
-            }
-            catch (err) {
+            } catch (err) {
                 continue;
             }
             if (isNaN(map[user])) {
@@ -39,10 +37,6 @@ function addRows() {	// ENTRY POINT     int main() lol
             addRow(key, map[key]);
         }
     });
-    var timeF = new Date().getTime();
-    console.log("0: " + time0);
-    console.log("F: " + timeF);
-    console.log("time: " + (timeF - time0));
 }
 function addRow(cellOne, cellTwo) {
     var table = document.getElementById("myTable");

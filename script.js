@@ -24,8 +24,8 @@ function addRows() {
 
         /* sorting */
         var keysSorted = getSortedKeys(map);
-        for (var i = 0; i < numUsers && i < keysSorted.length; i++) {
-            var key = keysSorted[i];
+        for (var j = 0; j < Math.min(numUsers, keysSorted.length); j++) {
+            var key = keysSorted[j];
             addRow(key, map[key]);
         }
     });
@@ -38,7 +38,7 @@ function addRow(cellOne, cellTwo) {
 }
 function deleteRows() {
     var table = document.getElementById("myTable");
-    for (var i = 1; i < table.rows.length;) { // DONT INCREMENT
+    for (var i = 1; i < table.rows.length;) { // DON'T INCREMENT
         table.deleteRow(i);
     }
 }

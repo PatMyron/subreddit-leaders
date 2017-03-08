@@ -1,4 +1,4 @@
-function addRows() {	// ENTRY POINT     int main() lol
+function addRows() {
     var subreddit = document.getElementById("myText").value;
     var time = document.getElementById("time").value;
     var lim = document.getElementById("myText2").value; // number of posts to get

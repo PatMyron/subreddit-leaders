@@ -27,10 +27,7 @@ function addRows() {
          **********************************/
         var keysSorted = getSortedKeys(map);
 
-        for (var i = 0; i < numUsers; i++) {
-            if (i >= keysSorted.length) {
-                break;
-            }
+        for (var i = 0; i < numUsers && i < keysSorted.length; i++) {
             var key = keysSorted[i];
             addRow(key, map[key]);
         }

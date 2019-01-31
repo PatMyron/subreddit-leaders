@@ -2,7 +2,6 @@ function addRows() {
     var subreddit = document.getElementById("myText").value;
     var time = document.getElementById("time").value;
     var lim = document.getElementById("myText2").value; // number of posts to get
-    var numUsers = document.getElementById("myText3").value;
     var map = [];
     deleteRows();
     reddit.top(subreddit).t(time).limit(lim).fetch(function (res) {
@@ -24,7 +23,7 @@ function addRows() {
 
         /* sorting */
         var keysSorted = getSortedKeys(map);
-        for (var j = 0; j < Math.min(numUsers, keysSorted.length); j++) {
+        for (var j = 0; j < keysSorted.length; j++) {
             var key = keysSorted[j];
             addRow(key, map[key]);
         }

@@ -1,11 +1,11 @@
 function addRows() {
     var subreddit = document.getElementById("myText").value;
     var time = document.getElementById("time").value;
-    var lim = document.getElementById("myText2").value; // number of posts to get
+    var numberOfPostsToGet = 10000;
     var map = [];
     deleteRows();
-    reddit.top(subreddit).t(time).limit(lim).fetch(function (res) {
-        for (var i = 0; i < lim; i++) {
+    reddit.top(subreddit).t(time).limit(numberOfPostsToGet).fetch(function (res) {
+        for (var i = 0; i < numberOfPostsToGet; i++) {
             try {
                 var user = res.data.children[i].data.author;
                 var score = res.data.children[i].data.score;

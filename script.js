@@ -48,3 +48,12 @@ function getSortedKeys(obj) {
         return obj[b] - obj[a]
     });
 }
+
+list = document.getElementById('datalist1');
+reddit.popularSubreddits().limit(1000000).fetch(function (res) {
+    res.data.children.forEach(item => {
+        let option = document.createElement('option');
+        option.value = item.data.display_name;
+        list.appendChild(option);
+    });
+});
